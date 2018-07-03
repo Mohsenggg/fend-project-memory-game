@@ -11,7 +11,8 @@ const items = ['fa-diamond', 'fa-diamond'
                 ];
 
 const deck = document.querySelector('.deck');
-
+let mins = document.getElementById('mins');
+let sec = document.getElementById('sec');
 
 
 // Start the game
@@ -26,6 +27,17 @@ function start() {
     deck.appendChild(card);
   }
 };
+
+// set timer for the game
+function timer() {
+  setInterval(function(){
+    sec.innerText++;
+    if (sec.innerText == 60) {
+      mins.innerText++;
+      sec.innerText = 0;
+    }
+  },1000);
+}
 
 
  //
