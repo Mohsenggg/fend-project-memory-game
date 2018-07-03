@@ -65,7 +65,7 @@ h1 {
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
     /* overflow: hidden;
     backface-visibility: hidden;
-    transform: rotateY(180deg); */
+    transform: rotateY(0deg); */
 }
 
 .deck .card.open {

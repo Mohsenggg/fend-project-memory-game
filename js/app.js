@@ -1,5 +1,33 @@
 
  //  Create a list that holds all of your cards
+const items = ['fa-diamond', 'fa-diamond'
+                'fa-paper-plane-o', 'fa-paper-plane-o'
+                'fa-anchor', 'fa-anchor'
+                'fa-bolt', 'fa-bolt'
+                'fa-cube', 'fa-cube'
+                'fa-leaf', 'fa-leaf'
+                'fa-bicycle', 'fa-bicycle'
+                'fa-bomb', 'fa-bomb'
+                ];
+
+const deck = document.querySelector('.deck');
+
+
+
+// Start the game
+function start() {
+  // shuffle the cards
+  const shuffledCard = shuffle(items);
+  //add cardS
+  for (var i = 0; i < items.length; i++) {
+    const card = document.createElement("li");
+    card.classList.add('card');
+    card.innerHtml = '<i class='${items[i]}'></i>';
+    deck.appendChild(card);
+  }
+};
+
+
  //
  // * Display the cards on the page
  // *   - shuffle the list of cards using the provided "shuffle" method below
