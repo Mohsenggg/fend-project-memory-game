@@ -46,7 +46,9 @@ function shuffle(array) {
  let sec = document.getElementById('sec');
  const moveNumber = document.querySelector('.moves');
  let moves;
-
+ let openedCards = [];
+ let matchedCards = [];
+const previousCard = openedCards[0];
 // Start the game
 function start() {
   // shuffle the cards
@@ -57,11 +59,31 @@ function start() {
     card.classList.add('card');
     card.innerHtml = '<i class='${items[i]}'></i>';
     deck.appendChild(card);
+
+    card.addEventListener('click', appear)
     // when start moves = 0
     moves = 0;
     moveNumber.textContent = moves;
   }
-};
+}
+
+// Add event listner for click and show card
+function appear(){
+  //OPEN first card or second card & compare between them
+  const viewCard = this;
+       if (openedCards.length === 1) {
+         card.classList.add("open", "show");
+         openedCards.push(this);
+      } else {
+        card.classList.add("open", "show");
+        openedCards.push(this);
+      }
+  //match timer start with first click
+      if (firstClick === true) {
+        timer();
+        firstClick = false;
+      }
+}
 
 // set timer for the game
 function timer() {
