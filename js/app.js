@@ -71,18 +71,38 @@ function start() {
 function appear(){
   //OPEN first card or second card & compare between them
   const viewCard = this;
-       if (openedCards.length === 1) {
-         card.classList.add("open", "show");
-         openedCards.push(this);
-      } else {
-        card.classList.add("open", "show");
-        openedCards.push(this);
-      }
+
+         if (openedCards.length === 1) {
+           card.classList.add("open", "show");
+           openedCards.push(this);
+           compare(viewCard, previousCard);
+
+        } else {
+          card.classList.add("open", "show");
+          openedCards.push(this);
+        }
+
   //match timer start with first click
       if (firstClick === true) {
         timer();
         firstClick = false;
       }
+}
+
+// compare between two oppened card
+function compare(viewCard, previousCard) {
+          // when 2 cards matched
+        if(viewCard.innerHtml === previousCard.innerHtml){
+          viewCard.classList.add('match');
+          previousCard.classList.add('match');
+          matchedCards.push(viewCard, previousCard);
+          openedCards = [];
+          // when 2 cards not matched
+        } eles {
+          viewCard.classList.remove('open', 'show');
+          previousCard.classList.remove('open', 'show');
+          openedCards = [];
+        }
 }
 
 // set timer for the game
