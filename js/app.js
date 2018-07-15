@@ -115,9 +115,15 @@ function compare(viewCard, previousCard) {
        } else {
          // show the second card for a 900s
          setTimeout(function () {
-           viewCard.classList.remove('open', 'show');
-           previousCard.classList.remove('open', 'show');
-         }, 900);
+           viewCard.classList.add('unmatch');
+           viewCard.classList.remove('open');
+           previousCard.classList.add('unmatch');
+           previousCard.classList.remove('open');
+           setTimeout(function() {
+             viewCard.classList.remove('unmatch', 'show');
+             previousCard.classList.remove('unmatch', 'show');
+           }, 1000);
+         }, 1000);
          openedCards = [];
        }
 }

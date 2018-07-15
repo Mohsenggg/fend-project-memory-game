@@ -68,7 +68,9 @@ h1 {
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
     /* overflow: hidden;
     backface-visibility: hidden; */
-
+    transition: 0.4s;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
  }
 
 .deck .card.open {
@@ -87,9 +89,26 @@ h1 {
     font-size: 33px;
 }
 
-/*
- * Styles for the Score Panel
- */
+.deck .card.unmatch {
+  background: rgba(254, 0, 73, 0.91);
+  animation: shake 0.4s;
+  animation-iteration-count: infinite;
+}
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_image_shake */
+@keyframes shake {
+  0% { transform: translate(3px, 3px) rotate(0deg); }
+  10% { transform: translate(-3px, -6px) rotate(-4deg); }
+  20% { transform: translate(-5px, 0px) rotate(4deg); }
+  30% { transform: translate(5px, 4px) rotate(0deg); }
+  40% { transform: translate(3px, -3px) rotate(4deg); }
+  50% { transform: translate(-3px, 4px) rotate(-4deg); }
+  60% { transform: translate(-5px, 3px) rotate(0deg); }
+  70% { transform: translate(5px, 3px) rotate(-4deg); }
+  80% { transform: translate(-3px, -3px) rotate(4deg); }
+  90% { transform: translate(3px, 4px) rotate(0deg); }
+  100% { transform: translate(3px, -4px) rotate(-4deg); }
+}
+}
 
 .score-panel {
     text-align: left;
