@@ -33,6 +33,9 @@ h1 {
     font-weight: 300;
 }
 
+.hidden {
+  display: none;
+}
 /*
  * Styles for the deck of cards
  */
@@ -66,10 +69,10 @@ h1 {
     /* overflow: hidden;
     backface-visibility: hidden;
     transform: rotateY(0deg); */
-}
+ }
 
 .deck .card.open {
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);
     background: #02b3e4;
     cursor: pointer;
 }
