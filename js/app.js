@@ -41,6 +41,9 @@ function shuffle(array) {
 */
 
 const deck = document.querySelector('.deck');
+const firstStar = document.getElementById('firstStar');
+const secondStar = document.getElementById('secondStar');
+const thirStar = document.getElementById('thirdStar');
 let mins = document.getElementById('mins');
 let sec = document.getElementById('sec');
 const moveNumber = document.querySelector('.moves');
@@ -80,10 +83,16 @@ function appear(card){
         if (openedCards.length === 1) {
           card.classList.add("open", "show");
           openedCards.push(this);
+          moves++;
+          moveNumber.textContent = moves;
           compare(viewCard, previousCard);
+          stars();
        } else {
          card.classList.add("open", "show");
          openedCards.push(this);
+         moves++;
+         moveNumber.textContent = moves;
+         stars();
        }
 
        //match timer start with first click
@@ -93,6 +102,7 @@ function appear(card){
        }
  });
 }
+
 // compare between two oppened card
 function compare(viewCard, previousCard) {
          // when 2 cards matched
@@ -107,9 +117,24 @@ function compare(viewCard, previousCard) {
          setTimeout(function () {
            viewCard.classList.remove('open', 'show');
            previousCard.classList.remove('open', 'show');
-         }, 900);   
+         }, 900);
          openedCards = [];
        }
+}
+
+// add stars according to moves number
+function stars() {
+  // starsNumber = 3;
+  if (moves >= 16 && moves < 24) {
+    thirdStar.classList.remove('fa-star');
+    thirdStar.classList.add('fa-star-o');
+  } else if (moves >= 24 && moves < 32) {
+    secondStar.classList.remove('fa-star');
+    secondStar.classList.add('fa-star-o');
+  } else if (moves >= 32 ) {
+    firstStar.classList.remove('fa-star');
+    firstStar.classList.add('fa-star-o');
+  }
 }
 
 // set timer for the game
