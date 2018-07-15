@@ -34,7 +34,7 @@ h1 {
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
 /*
  * Styles for the deck of cards
@@ -67,12 +67,12 @@ h1 {
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
     /* overflow: hidden;
-    backface-visibility: hidden;
-    transform: rotateY(0deg); */
+    backface-visibility: hidden; */
+
  }
 
 .deck .card.open {
-    transform: rotateY(0deg);
+  transform: rotateY(180deg);
     background: #02b3e4;
     cursor: pointer;
 }
@@ -110,13 +110,50 @@ h1 {
 }
 
 .score-panel #timeStyl {
-  padding: 1px 5px 0px 5px;
-  margin-left: 100px;
-  border-radius: 10px;
-  background-color: #3298ee2b;
+    padding: 1px 5px 0px 5px;
+    margin-left: 100px;
+    border-radius: 10px;
+    background-color: #3298ee2b;
 }
 
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+.model {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.9;
+    background: rgb(125, 149, 135);
+}
+
+.content {
+    text-align: center;
+    position: relative;
+    width: 50%;
+    height: 50%;
+    margin: 20% auto;
+    padding: 2em;
+    box-shadow: 6px 8px 10px 0 rgba(46, 61, 73, 0.5);
+    border-radius: 5px;
+    background: white;
+}
+
+.medal__img {
+    padding: 1em;
+    width: 120px;
+    height: 160px;
+    border-radius: 50%;
+    float: center;
+  }
+
+.message {
+    font-style: italic;
+    color: rgb(246, 173, 0);
 }

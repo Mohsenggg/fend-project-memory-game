@@ -124,7 +124,6 @@ function compare(viewCard, previousCard) {
 
 // add stars according to moves number
 function stars() {
-  // starsNumber = 3;
   if (moves >= 16 && moves < 24) {
     thirdStar.classList.remove('fa-star');
     thirdStar.classList.add('fa-star-o');
@@ -147,5 +146,6 @@ function timer() {
    }
  },1000);
 }
+
 
 start();
