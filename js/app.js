@@ -41,13 +41,18 @@ function shuffle(array) {
 */
 
 const deck = document.querySelector('.deck');
+const moveNumber = document.querySelector('.moves');
 const firstStar = document.getElementById('firstStar');
 const secondStar = document.getElementById('secondStar');
 const thirStar = document.getElementById('thirdStar');
+const model = document.getElementById('evaluation');
+const modelStars = document.getElementById('model__stars');
+const modelMoves = document.getElementById('model__moves');
 let mins = document.getElementById('mins');
 let sec = document.getElementById('sec');
-const moveNumber = document.querySelector('.moves');
+let time;
 let moves;
+let starsNumber = 3;
 let openedCards = [];
 let matchedCards = [];
 let isFirstClick = true;
@@ -130,21 +135,25 @@ function compare(viewCard, previousCard) {
 
 // add stars according to moves number
 function stars() {
+  starsNumber = 3;
   if (moves >= 16 && moves < 24) {
     thirdStar.classList.remove('fa-star');
     thirdStar.classList.add('fa-star-o');
+    starsNumber = 2;
   } else if (moves >= 24 && moves < 32) {
     secondStar.classList.remove('fa-star');
     secondStar.classList.add('fa-star-o');
+    starsNumber = 1;
   } else if (moves >= 32 ) {
     firstStar.classList.remove('fa-star');
     firstStar.classList.add('fa-star-o');
+    starsNumber = 0;
   }
 }
 
 // set timer for the game
 function timer() {
- setInterval(function(){
+  time = setInterval(function(){
    sec.innerText++;
    if (sec.innerText == 60) {
      mins.innerText++;
@@ -153,5 +162,10 @@ function timer() {
  },1000);
 }
 
+function finish() {
+  model.style.display = "block";
+  modelStars.innerText = moves;
+  modelStars.innerText = starsNumber;
+}
 
 start();
