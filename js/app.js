@@ -106,7 +106,8 @@ function appear(card){
        }
  }
  card.addEventListener('click', addCard);
-}
+ }
+
 
 // compare between two oppened card
 function compare(viewCard, previousCard) {
@@ -128,8 +129,8 @@ function compare(viewCard, previousCard) {
            setTimeout(function() {
              viewCard.classList.remove('unmatch', 'show');
              previousCard.classList.remove('unmatch', 'show');
-           }, 1000);
-         }, 1000);
+           }, 500);
+         }, 500);
          openedCards = [];
        }
 }
@@ -182,13 +183,14 @@ function finish() {
 
 
 function reset() {
-  openedCards = [];
-  deck.innerHTML = "";
-  moves = 0;
-  moveNumber.textContent = moves;
-  matchedCards = [];
-  starsNumber = 3;
-  start();
+  // openedCards = [];
+  // deck.innerHTML = "";
+  // moves = 0;
+  // moveNumber.textContent = moves;
+  // matchedCards = [];
+  // starsNumber = 3;
+  // start();
+  window.location.reload(true);
 }
 
 const resetBtn = document.querySelector('.restart');
