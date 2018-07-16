@@ -57,8 +57,11 @@ let openedCards = [];
 let matchedCards = [];
 let isFirstClick = true;
 
+
 // Start the game
 function start() {
+  mins.innerText = 0;
+  sec.innerText = 0;
  // shuffle the cards
  const shuffledCard = shuffle(items);
  //add cardS
@@ -68,12 +71,12 @@ function start() {
    card.innerHTML = `<i class="${items[i]}"></i>`;
    deck.appendChild(card);
 
-   // when start moves = 0
    moves = 0;
    moveNumber.textContent = moves;
    appear(card);
+   timer();
    clearInterval(time);
- }
+   }
 }
 
 // Add event listner for click and show card
@@ -98,7 +101,7 @@ function appear(card){
          stars();
        }
 
-       //match timer start with first click
+       // match timer start with first click
        if (isFirstClick === true) {
          timer();
          isFirstClick = false;
@@ -167,7 +170,6 @@ function timer() {
  },1000);
 }
 
-
 function finish() {
   model.style.display = "block";
   modelMoves.innerText = moves;
@@ -175,8 +177,23 @@ function finish() {
   clearInterval(time);
   document.querySelector('.model').addEventListener('click', function() {
     model.style.display = "none";
-    start();
+    reset();
   });
 }
+
+
+function reset() {
+  openedCards = [];
+  deck.innerHTML = "";
+  moves = 0;
+  moveNumber.textContent = moves;
+  matchedCards = [];
+  starsNumber = 3;
+  start();
+}
+
+
+const resetBtn = document.querySelector('.restart');
+resetBtn.addEventListener('click', reset);
 
 start();
