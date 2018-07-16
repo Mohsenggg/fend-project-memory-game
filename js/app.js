@@ -82,7 +82,7 @@ function start() {
 // Add event listner for click and show card
 function appear(card){
  //OPEN first card or second card & compare between them
- card.addEventListener('click', function () {
+ function addCard() {
       const viewCard = this;
       const previousCard = openedCards[0];
 
@@ -96,8 +96,6 @@ function appear(card){
        } else {
          card.classList.add("open", "show");
          openedCards.push(this);
-         moves++;
-         moveNumber.textContent = moves;
          stars();
        }
 
@@ -106,7 +104,8 @@ function appear(card){
          timer();
          isFirstClick = false;
        }
- });
+ }
+ card.addEventListener('click', addCard);
 }
 
 // compare between two oppened card
@@ -191,7 +190,6 @@ function reset() {
   starsNumber = 3;
   start();
 }
-
 
 const resetBtn = document.querySelector('.restart');
 resetBtn.addEventListener('click', reset);
