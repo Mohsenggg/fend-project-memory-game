@@ -71,8 +71,8 @@ function start() {
    // when start moves = 0
    moves = 0;
    moveNumber.textContent = moves;
-
    appear(card);
+   clearInterval(time);
  }
 }
 
@@ -80,8 +80,6 @@ function start() {
 function appear(card){
  //OPEN first card or second card & compare between them
  card.addEventListener('click', function () {
-
-
       const viewCard = this;
       const previousCard = openedCards[0];
 
@@ -116,6 +114,7 @@ function compare(viewCard, previousCard) {
          previousCard.classList.add('match');
          matchedCards.push(viewCard, previousCard);
          openedCards = [];
+         completeCards();
          // when 2 cards not matched
        } else {
          // show the second card for a 900s
@@ -131,6 +130,12 @@ function compare(viewCard, previousCard) {
          }, 1000);
          openedCards = [];
        }
+}
+
+function completeCards() {
+  if(matchedCards.length === 16) {
+    finish();
+  }
 }
 
 // add stars according to moves number
@@ -162,10 +167,16 @@ function timer() {
  },1000);
 }
 
+
 function finish() {
   model.style.display = "block";
-  modelStars.innerText = moves;
+  modelMoves.innerText = moves;
   modelStars.innerText = starsNumber;
+  clearInterval(time);
+  document.querySelector('.model').addEventListener('click', function() {
+    model.style.display = "none";
+    start();
+  });
 }
 
 start();
