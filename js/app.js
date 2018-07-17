@@ -70,10 +70,10 @@ function start() {
    card.classList.add('card');
    card.innerHTML = `<i class="${items[i]}"></i>`;
    deck.appendChild(card);
-
+   // Add event listner for click and show card
+   appear(card);
    moves = 0;
    moveNumber.textContent = moves;
-   appear(card);
    timer();
    clearInterval(time);
    }
@@ -98,7 +98,6 @@ function appear(card){
          openedCards.push(this);
          stars();
        }
-
        // match timer start with first click
        if (isFirstClick === true) {
          timer();
@@ -108,7 +107,6 @@ function appear(card){
  card.addEventListener('click', addCard);
  }
 
-
 // compare between two oppened card
 function compare(viewCard, previousCard) {
          // when 2 cards matched
@@ -117,6 +115,7 @@ function compare(viewCard, previousCard) {
          previousCard.classList.add('match');
          matchedCards.push(viewCard, previousCard);
          openedCards = [];
+         // when all cards match
          completeCards();
          // when 2 cards not matched
        } else {
@@ -170,22 +169,24 @@ function timer() {
  },1000);
 }
 
+// final message appears all cards match
 function finish() {
   model.style.display = "block";
   modelMoves.innerText = moves;
   modelStars.innerText = starsNumber;
   clearInterval(time);
+  // reset the page after click on page
   document.querySelector('.model').addEventListener('click', function() {
     model.style.display = "none";
     reset();
   });
 }
 
-
 function reset() {
   window.location.reload(true);
 }
 
+// add functionality to reset buttom 
 const resetBtn = document.querySelector('.restart');
 resetBtn.addEventListener('click', reset);
 
