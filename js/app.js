@@ -183,13 +183,6 @@ function finish() {
 
 
 function reset() {
-  // openedCards = [];
-  // deck.innerHTML = "";
-  // moves = 0;
-  // moveNumber.textContent = moves;
-  // matchedCards = [];
-  // starsNumber = 3;
-  // start();
   window.location.reload(true);
 }
 
