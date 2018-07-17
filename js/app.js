@@ -186,7 +186,7 @@ function reset() {
   window.location.reload(true);
 }
 
-// add functionality to reset buttom 
+// add functionality to reset buttom
 const resetBtn = document.querySelector('.restart');
 resetBtn.addEventListener('click', reset);
 
