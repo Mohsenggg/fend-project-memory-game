@@ -137,7 +137,7 @@ function compare(viewCard, previousCard) {
 
 function completeCards() {
   if(matchedCards.length === 16) {
-    finish();
+    setInterval(finish, 2000)
   }
 }
 
