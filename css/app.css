@@ -139,6 +139,10 @@ h1 {
     display: inline-block;
 }
 
+.starColor{
+color: gold; 
+}
+
 .score-panel #timeStyl {
     padding: 1px 5px 0px 5px;
     margin-left: 100px;
@@ -150,6 +154,7 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
 
 /* style for the final message */
 

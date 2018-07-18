@@ -97,6 +97,7 @@ function appear(card){
          card.classList.add("open", "show");
          openedCards.push(this);
          stars();
+         card.removeEventListener('click', addCard);
        }
        // match timer start with first click
        if (isFirstClick === true) {
