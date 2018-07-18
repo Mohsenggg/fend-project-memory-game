@@ -48,6 +48,9 @@ const thirStar = document.getElementById('thirdStar');
 const model = document.getElementById('evaluation');
 const modelStars = document.getElementById('model__stars');
 const modelMoves = document.getElementById('model__moves');
+const modelMins = document.getElementById('model__mins');
+const modelSec = document.getElementById('model__sec');
+const modelRstart = document.getElementById('model__restart')
 let mins = document.getElementById('mins');
 let sec = document.getElementById('sec');
 let time;
@@ -99,7 +102,7 @@ function appear(card){
          openedCards.push(this);
          stars();
        }
-       
+
        if (isFirstClick === true) {
          timer();
          isFirstClick = false;
@@ -144,19 +147,15 @@ function completeCards() {
 // add stars according to moves number
 function stars() {
   starsNumber = 3;
-  if (moves >= 10 && moves < 13) {
+  if (moves >= 10 && moves < 18) {
     thirdStar.classList.remove('fa-star', 'starColor');
     thirdStar.classList.add('fa-star-o');
     starsNumber = 2;
-  } else if (moves >= 13 && moves < 17) {
+  } else if (moves >= 18) {
     secondStar.classList.remove('fa-star', 'starColor');
     secondStar.classList.add('fa-star-o');
     starsNumber = 1;
-  } else if (moves >= 17 ) {
-    firstStar.classList.remove('fa-star', 'starColor');
-    firstStar.classList.add('fa-star-o');
-    starsNumber = 0;
-  }
+ }
 }
 
 // set timer for the game
@@ -175,12 +174,15 @@ function finish() {
   model.style.display = "block";
   modelMoves.innerText = moves;
   modelStars.innerText = starsNumber;
+  modelMins.innerText = mins.textContent;
+  modelSec.innerText = sec.textContent;
   clearInterval(time);
-  // reset the page after click on page
-  document.querySelector('.model').addEventListener('click', function() {
-    model.style.display = "none";
+
+  // reset the game after click on restartBtn
+  modelRstart.addEventListener('click', function(){
     reset();
   });
+
 }
 
 function reset() {

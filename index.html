@@ -23,7 +23,7 @@
 
         	<span class="moves"></span> Moves
 
-            <span id="timeStyl"><span id='mins'></span> min:<span id='sec'></span> sec </span>
+            <span class="timeStyl"><span id='mins'></span> min:<span id='sec'></span> sec </span>
 
             <div class="restart">
         		<i class="fa fa-repeat"></i>
@@ -34,9 +34,12 @@
               <img class="medal__img" src="img/medal.png" alt="medal">
               <h1 class="title__message" >Congratulations! You Won!</h1>
               <p>
+              <!-- add time to final message -->
+              Your <span class="fa fa-hourglass-end"></span> is <span id="model__time"><span id="model__mins"></span> mins : <span id="model__sec"></span> sec</span><br>
+              <!--  add moves and stars  -->
               With <span id="model__moves"></span> moves
               and <span id="model__stars"></span> stars <i class="fa fa-star starColor"></i><br>
-              Wooooooooooo!
+          		<span id="model__restart"><i class="fa fa-repeat"></i></span>
             </p>
             </div>
           </div>
