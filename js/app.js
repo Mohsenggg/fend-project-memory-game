@@ -83,30 +83,30 @@ function start() {
 function appear(card){
  //OPEN first card or second card & compare between them
  function addCard() {
+     // match timer start with first click
       const viewCard = this;
       const previousCard = openedCards[0];
 
         if (openedCards.length === 1) {
-          card.classList.add("open", "show");
+          card.classList.add('open', 'show', 'remove');
           openedCards.push(this);
           moves++;
           moveNumber.textContent = moves;
           compare(viewCard, previousCard);
           stars();
        } else {
-         card.classList.add("open", "show");
+         card.classList.add('open', 'show', 'remove');
          openedCards.push(this);
          stars();
-         card.removeEventListener('click', addCard);
        }
-       // match timer start with first click
+       
        if (isFirstClick === true) {
          timer();
          isFirstClick = false;
        }
- }
- card.addEventListener('click', addCard);
- }
+  }
+  card.addEventListener('click', addCard);
+}
 
 // compare between two oppened card
 function compare(viewCard, previousCard) {
@@ -127,8 +127,8 @@ function compare(viewCard, previousCard) {
            previousCard.classList.add('unmatch');
            previousCard.classList.remove('open');
            setTimeout(function() {
-             viewCard.classList.remove('unmatch', 'show');
-             previousCard.classList.remove('unmatch', 'show');
+             viewCard.classList.remove('unmatch', 'show', 'remove');
+             previousCard.classList.remove('unmatch', 'show', 'remove');
            }, 500);
          }, 500);
          openedCards = [];
@@ -144,16 +144,16 @@ function completeCards() {
 // add stars according to moves number
 function stars() {
   starsNumber = 3;
-  if (moves >= 16 && moves < 24) {
-    thirdStar.classList.remove('fa-star');
+  if (moves >= 10 && moves < 13) {
+    thirdStar.classList.remove('fa-star', 'starColor');
     thirdStar.classList.add('fa-star-o');
     starsNumber = 2;
-  } else if (moves >= 24 && moves < 32) {
-    secondStar.classList.remove('fa-star');
+  } else if (moves >= 13 && moves < 17) {
+    secondStar.classList.remove('fa-star', 'starColor');
     secondStar.classList.add('fa-star-o');
     starsNumber = 1;
-  } else if (moves >= 32 ) {
-    firstStar.classList.remove('fa-star');
+  } else if (moves >= 17 ) {
+    firstStar.classList.remove('fa-star', 'starColor');
     firstStar.classList.add('fa-star-o');
     starsNumber = 0;
   }

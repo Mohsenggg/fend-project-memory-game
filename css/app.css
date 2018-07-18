@@ -84,6 +84,10 @@ h1 {
     font-size: 33px;
 }
 
+.deck .card.remove {
+    pointer-events: none;
+}
+
 .deck .card.match {
     cursor: default;
     background: #02ccba;
@@ -140,7 +144,7 @@ h1 {
 }
 
 .starColor{
-color: gold; 
+color: gold;
 }
 
 .score-panel #timeStyl {
