@@ -1,7 +1,8 @@
 #The game 
 Start the game from here http://htmlpreview.github.io/?https://github.com/Mohsenggg/fend-project-memory-game/blob/master/index.html
 choose all matched cards to finish the game
-
+http://htmlpreview.github.io/?https://github.com/Mohsenggg/fend-project-memory-game/blob/master/index.html
+http://htmlpreview.github.io/?https://github.com/Mohsenggg/fend-project-memory-game/blob/master/index.html
 
 #Resources
 Medal img credit to https://www.flaticon.com/free-icon/medal_411728
